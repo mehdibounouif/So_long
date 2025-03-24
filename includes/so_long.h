@@ -10,6 +10,7 @@
 
 # define RECTANGUL_ERROR "Map is not rectanguler!\n"
 # define NODE_ERROR "Node is creation failed!\n"
+# define WALL_ERROR "The wall has a hole!\n"
 
 
 typedef struct f_node
@@ -38,5 +39,6 @@ void	check_name(char *name);
 void    ft_free_str(char **list);
 void    print_list(t_node *list);
 void    check_map(int fd, t_map **map, t_node **list);
+void	check_walls(t_map **map, t_node **list, int fd);
 
 #endif
