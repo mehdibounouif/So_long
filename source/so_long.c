@@ -1,5 +1,5 @@
 #include "../includes/so_long.h"
-/*
+
 void	print_list(t_node *list)
 {
 	while (list)
@@ -8,7 +8,7 @@ void	print_list(t_node *list)
 		list = list->next;
 	}
 }
-*/
+
 
 int	main(int c, char **v)
 {

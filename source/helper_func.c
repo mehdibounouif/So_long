@@ -49,13 +49,13 @@ void     check_rectangule(int fd, t_map **map, t_node **list)
         size_t	first_line;
         size_t  len;
         t_node  *node;
-	char	*tmp;
+	//char	*tmp;
 
         first_line = 0;
         len = 0;
         while ((line = get_next_line(fd)) != NULL)
         {
-		tmp = line;
+		//tmp = line;
                 len = ft_strlen(line);
                 if (first_line == 0)
                         first_line = len;
@@ -66,7 +66,7 @@ void     check_rectangule(int fd, t_map **map, t_node **list)
                         free_and_close(list, map, fd, NODE_ERROR);
                 add_back(list, node);
                 (*map)->c_line++;
-		free(tmp);
+		//free(tmp);
         }
-        (*map)->len = first_line;
+        (*map)->len = first_line - 1;
 }
