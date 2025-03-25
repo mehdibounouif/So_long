@@ -32,7 +32,7 @@ t_node  *ft_new_node(char *content);
 void    add_back(t_node **list, t_node *new);
 void    ft_free_list(t_node **list);
 void    free_and_close(t_node **list, t_map **map, int fd, char *msg);
-void     check_rectangule(int fd, t_map **map, t_node **list);
+void	check_rectangule(int fd, t_map **map, t_node **list);
 void    ft_init(t_map **map);
 int     ft_strcmp(char *s1, char *s2);
 void	check_name(char *name);
