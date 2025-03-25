@@ -11,18 +11,22 @@
 # define RECTANGUL_ERROR "Map is not rectanguler!\n"
 # define NODE_ERROR "Node is creation failed!\n"
 # define WALL_ERROR "The wall has a hole!\n"
+# define MULTY_PLAYER_ERROR "There's many player\n"
+# define NO_PLAYER_ERROR "There's no player!\n"
 
 
-typedef struct f_node
+typedef struct s_node
 {
         char    *content;
-        struct f_node   *next;
+        struct s_node   *next;
 }       t_node;
 
-typedef struct f_map
+typedef struct s_map
 {
-        int     c_line;
-        size_t  len;
+        int     y;
+        size_t  x;
+	int	player_x;
+	int	player_y;
         int     collectible;
         bool    is_rectang;
         bool    is_correct;
@@ -40,5 +44,6 @@ void    ft_free_str(char **list);
 void    print_list(t_node *list);
 void    check_map(int fd, t_map **map, t_node **list);
 void	check_walls(t_map **map, t_node **list, int fd);
+void    player_position(t_node **list, t_map **map, int fd);
 
 #endif

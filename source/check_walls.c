@@ -13,11 +13,11 @@ void	check_walls(t_map **map, t_node **list, int fd)
 	{
 		tmp = tmp_list->content;
 		j = 0;
-		while (j < (*map)->len)
+		while (j < (*map)->x)
 		{
-			if (((i == 0 || i == (*map)->c_line - 1) && tmp[j] != '1')
-					|| ((i > 0 && i < (*map)->c_line - 1) 
-					&& (j == 0 || j == (*map)->len - 1) 
+			if (((i == 0 || i == (*map)->y - 1) && tmp[j] != '1')
+					|| ((i > 0 && i < (*map)->y - 1) 
+					&& (j == 0 || j == (*map)->x - 1) 
 					&& tmp[j] != '1'))
 			{
 				free_and_close(list, map, fd, WALL_ERROR);

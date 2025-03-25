@@ -8,6 +8,9 @@ SRC = $(SRC_DIR)/handel_list.c\
       $(SRC_DIR)/check_map.c\
       $(SRC_DIR)/check_name.c\
       $(SRC_DIR)/check_walls.c\
+      $(SRC_DIR)/ft_free.c\
+      $(SRC_DIR)/check_rectangle.c\
+      $(SRC_DIR)/check_player.c\
       $(SRC_DIR)/so_long.c\
 
 LIBFT_DIR = ./libft

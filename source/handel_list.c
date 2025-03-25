@@ -25,18 +25,3 @@ void    add_back(t_node **list, t_node *new)
 		tmp->next = new;	
 	}
 }
-/*
-void    ft_free_list(t_node **list)
-{
-	t_node	*tmp;
-	if (*list)
-	{
-		while (*list)
-		{
-			tmp = *list;
-			*list = (*list)->next;
-			free(tmp);
-		}
-	}
-}
-*/
