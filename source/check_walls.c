@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void	check_walls(t_map **map, t_node **list, int fd)
+void	check_walls(t_node **list, t_map **map, int fd)
 {
 	char	*tmp;
 	int	i;

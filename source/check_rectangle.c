@@ -1,6 +1,6 @@
 #include "../includes/so_long.h"
 
-void    check_rectangule(int fd, t_map **map, t_node **list)
+void    check_rectangule(t_node **list, t_map **map, int fd)
 {
         char    *line;
         size_t  first_line;
