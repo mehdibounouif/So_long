@@ -15,6 +15,8 @@
 # define NO_PLAYER_ERROR "There's no player!\n"
 # define MULTY_EXIT_ERROR "There's multy exit doors\n"
 # define NO_EXIT_ERROR "There's no exit door!\n"
+# define INVALID_CHAR_ERROR "Invalid character in map!\n"
+# define NO_COLLECTIBLE_ERROR "There's no collectibles!\n"
 
 
 typedef struct s_node
@@ -50,5 +52,9 @@ void    check_map(int fd, t_map **map, t_node **list);
 void	check_walls(t_node **list, t_map **map, int fd);
 void    check_player(t_node **list, t_map **map, int fd);
 void    check_exit_door(t_node **list, t_map **map, int fd);
+void    clean_exiting(t_node **list, t_map **map, int fd);
+void    check_invalid_char(t_node **list, t_map **map, int fd);
+void    check_collectible(t_node **list, t_map  **map, int fd);
+char    **map_copy(t_node **list, t_map **map);
 
 #endif

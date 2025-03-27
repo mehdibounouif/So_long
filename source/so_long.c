@@ -21,15 +21,13 @@ int	main(int c, char **v)
 	{
 		write(2, "Error\ninvalid argument!\n", 24);
 		return (1);
-	}
-		
+	}		
 	check_name(v[1]);
 	if ((fd = open(v[1], O_RDONLY)) < 0)
 	{
 		write(2, "Error\nOpen file failed!\n", 24);
               	return (1);
 	}
-	//ft_init(&map);
 	check_map(fd, &map, &list);
 	return (0);
 }
