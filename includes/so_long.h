@@ -1,6 +1,8 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "/usr/include/minilibx-linux/mlx.h"
+# include "/usr/include/minilibx-linux/mlx_int.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -17,6 +19,7 @@
 # define NO_EXIT_ERROR "There's no exit door!\n"
 # define INVALID_CHAR_ERROR "Invalid character in map!\n"
 # define NO_COLLECTIBLE_ERROR "There's no collectibles!\n"
+# define INVALID_MAP_ERROR "Invalid map!\n"
 
 
 typedef struct s_node
@@ -27,9 +30,20 @@ typedef struct s_node
 
 typedef struct s_map
 {
+	void	*mlx;
+	void	*win;
+	void	*back_img;
+	void	*wall_img;
+	void	*exit_img;
+	void	*player_img;
+	void	*collectible_img;
+	int	img_width;
+	int	img_height;
         int     y;
         size_t  x;
 	int	player_x;
+	int	x_pixel;
+	int	y_pixel;
 	int	player_y;
 	int	exit_x;
 	int	exit_y;
@@ -57,5 +71,6 @@ void    check_invalid_char(t_node **list, t_map **map, int fd);
 void    check_collectible(t_node **list, t_map  **map, int fd);
 char    **map_copy(t_node **list, t_map **map);
 void    if_can_access(t_node **list, t_map **map, int fd);
+void     minilibx(t_node **list, t_map **map, int fd);
 
 #endif

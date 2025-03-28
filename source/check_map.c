@@ -24,5 +24,5 @@ void	check_map(int fd, t_map **map, t_node **list)
 	check_exit_door(list, map, fd);
 	check_collectible(list, map, fd);
 	if_can_access(list, map, fd);
-	clean_exiting(list, map, fd);
+//	clean_exiting(list, map, fd);
 }

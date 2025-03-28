@@ -1,22 +1,5 @@
 #include "../includes/so_long.h"
 
-void	print(char **p)
-{
-	int	i = 0;
-	int	j;
-	while (p[i])
-	{
-		j = 0;
-		while (p[i][j])
-		{
-			printf("%c", p[i][j]);
-			j++;
-		}
-		i++;
-	}
-	printf("\n");
-}
-
 void	flood_fill(char **list, t_map *map, size_t x, int y, int *c)
 {
 	if (list[y][x] == '1' || list[y][x] == 'V')
@@ -38,16 +21,25 @@ void	if_can_access(t_node **list, t_map **map, int fd)
 {
 	char	**lst;	
 	int	c;
+	
 
 	lst = map_copy(list, map);
-	printf("%d\n", (*map)->access_exit);
+	c = (*map)->collectible;
 	flood_fill(lst, *map, (*map)->player_x-1, (*map)->player_y-1, &c);
-	print(lst);
-	printf("%d\n", (*map)->access_exit);
-	if (c == 0 && (*map)->access_exit == 1)
+	/*
+	printf("\n=================\n"):
+	while (lst[i])
 	{
-		print(lst);
-		printf("You can access all collectibles and exit dor!\n");
+		printf ("%s\n", lst[i]);
+		i++;
+	{
+	printf("\n=================\n"):
+	*/
+	if (c == 0 && (*map)->access_exit == 1)
+		free(lst);
+	else
+	{
+		free(lst);
+		free_and_close(list, map, fd, INVALID_MAP_ERROR);
 	}
-	close(fd);
 }

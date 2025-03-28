@@ -31,13 +31,34 @@ char    **map_copy(t_node **list, t_map **map)
 
 void    ft_init(t_map **map)
 {
+	(*map)->mlx = NULL;
+	(*map)->win = NULL;
+	(*map)->back_img = NULL;
+	(*map)->wall_img = NULL;
+	(*map)->exit_img = NULL;
+	(*map)->player_img = NULL;
+	(*map)->collectible_img = NULL;
 	(*map)->player_x = 0;
 	(*map)->player_y = 0;
 	(*map)->exit_x = 0;
 	(*map)->exit_y = 0;
+	(*map)->x_pixel = 0;
+	(*map)->y_pixel = 0;
         (*map)->y = 0;
         (*map)->x = 0;
         (*map)->collectible = 0;
         (*map)->access_exit = 0;
         (*map)->is_correct = false;
 }
+
+
+
+
+
+
+
+
+
+
+
+

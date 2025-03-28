@@ -29,5 +29,6 @@ int	main(int c, char **v)
               	return (1);
 	}
 	check_map(fd, &map, &list);
+	minilibx(&list, &map, fd);
 	return (0);
 }

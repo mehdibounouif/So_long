@@ -1,6 +1,7 @@
 NAME = so_long
 RM = rm -f
 CC = cc
+MLX_FLAGS = -L/usr/include/minilibx-linux -lmlx -lXext -lX11
 FLAGS = -Wall -Wextra -Werror -g3
 SRC_DIR = ./source
 SRC = $(SRC_DIR)/handel_list.c\
@@ -14,6 +15,7 @@ SRC = $(SRC_DIR)/handel_list.c\
       $(SRC_DIR)/check_collectible.c\
       $(SRC_DIR)/check_invalid_char.c\
       $(SRC_DIR)/if_can_access.c\
+      $(SRC_DIR)/mlx_func.c\
       $(SRC_DIR)/so_long.c\
 
 LIBFT_DIR = ./libft
@@ -27,7 +29,7 @@ SRC_OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(SRC_OBJ) $(LIBFT_LIB)
-	$(CC) $(FLAGS) $(SRC_OBJ) $(LIBFT_LIB) -o $(NAME)
+	$(CC) $(FLAGS) $(SRC_OBJ) $(LIBFT_LIB) $(MLX_FLAGS) -o $(NAME)
 
 $(LIBFT_LIB):
 	$(MAKE) --no-print-directory -C $(LIBFT_DIR)
