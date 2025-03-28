@@ -1,16 +1,32 @@
 #include "../includes/so_long.h"
 
+void	print(char **p)
+{
+	int	i = 0;
+	int	j;
+	while (p[i])
+	{
+		j = 0;
+		while (p[i][j])
+		{
+			printf("%c", p[i][j]);
+			j++;
+		}
+		i++;
+	}
+	printf("\n");
+}
+
 void	flood_fill(char **list, t_map *map, size_t x, int y, int *c)
 {
-	if (list[y][x] == '1' || list[y][x] == 'E'
-			|| list[y][x] == 'V')
+	if (list[y][x] == '1' || list[y][x] == 'V')
 		return ;
 	if (x == 0 || y == 0 || x >= map->x || y >= map->y)
 		return ;
-	if (*c == 0 && list[y][x] == 'E')
-		map->access_exit = 1;
 	if (list[y][x] == 'C')
 		(*c)--;	
+	if (list[y][x] == 'E')
+		map->access_exit = 1;
 	list[y][x] = 'V';
 	flood_fill(list, map, x - 1, y, c);
 	flood_fill(list, map, x + 1, y, c);
@@ -20,28 +36,18 @@ void	flood_fill(char **list, t_map *map, size_t x, int y, int *c)
 
 void	if_can_access(t_node **list, t_map **map, int fd)
 {
-	char	**lst;
-	
+	char	**lst;	
 	int	c;
-	int	i;
-	i = 0;
 
-	c = (*map)->collectible;
-	printf("collectible before %d\n", c);
-	printf("%d\n", (*map)->access_exit);
 	lst = map_copy(list, map);
-	flood_fill(lst, *map, (*map)->player_x, (*map)->player_y, &c);
+	printf("%d\n", (*map)->access_exit);
+	flood_fill(lst, *map, (*map)->player_x-1, (*map)->player_y-1, &c);
+	print(lst);
 	printf("%d\n", (*map)->access_exit);
 	if (c == 0 && (*map)->access_exit == 1)
 	{
-	        printf("\n=+++++++++++++++++++++=\n");
-        	while (lst[i])
-	        {
-        	        printf("%s\n", lst[i++]);
-	        }
-        	printf("\n=+++++++++++++++++++++=\n");
+		print(lst);
 		printf("You can access all collectibles and exit dor!\n");
 	}
-	printf("collectible after %d\n", c);
 	close(fd);
 }
