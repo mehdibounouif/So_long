@@ -34,7 +34,7 @@ typedef struct s_map
 	int	exit_x;
 	int	exit_y;
         int     collectible;
-        bool    is_rectang;
+        int	access_exit;
         bool    is_correct;
 }	t_map;
 
@@ -56,5 +56,6 @@ void    clean_exiting(t_node **list, t_map **map, int fd);
 void    check_invalid_char(t_node **list, t_map **map, int fd);
 void    check_collectible(t_node **list, t_map  **map, int fd);
 char    **map_copy(t_node **list, t_map **map);
+void    if_can_access(t_node **list, t_map **map, int fd);
 
 #endif

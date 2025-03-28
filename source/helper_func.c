@@ -25,7 +25,7 @@ char    **map_copy(t_node **list, t_map **map)
                 tmp_list = tmp_list->next;
 		i++;
         }
-	tmp[i] = NULL;
+	lst[i] = NULL;
         return(lst);
 }
 
@@ -38,6 +38,6 @@ void    ft_init(t_map **map)
         (*map)->y = 0;
         (*map)->x = 0;
         (*map)->collectible = 0;
-        (*map)->is_rectang = false;
+        (*map)->access_exit = 0;
         (*map)->is_correct = false;
 }

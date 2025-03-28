@@ -13,8 +13,7 @@ SRC = $(SRC_DIR)/handel_list.c\
       $(SRC_DIR)/check_player.c\
       $(SRC_DIR)/check_collectible.c\
       $(SRC_DIR)/check_invalid_char.c\
-      $(SRC_DIR)/so_long.c\
-#      $(SRC_DIR)/if_can_access.c\
+      $(SRC_DIR)/if_can_access.c\
       $(SRC_DIR)/so_long.c\
 
 LIBFT_DIR = ./libft
