@@ -12,10 +12,10 @@ void	place_images(t_map **map)
 			"./textures/collectible.xpm",
 			&(*map)->img_width, &(*map)->img_height);
 	(*map)->wall_img = mlx_xpm_file_to_image((*map)->mlx,
-			"./textures/tree.xpm",
+			"./textures/wall.xpm",
 			&(*map)->img_width, &(*map)->img_height);
 	(*map)->back_img = mlx_xpm_file_to_image((*map)->mlx,
-			"./textures/balck.xpm",
+			"./textures/black.xpm",
 			&(*map)->img_width, &(*map)->img_height);
 }
 
@@ -25,10 +25,10 @@ void	put_and_load_map(char **lst, t_map **map)
 	int	(x), (y);
 	place_images(map);
 	y = 0;
-	while (lst[y++])
+	while (lst[y])
 	{
 		x = 0;
-		while (lst[y][x++])
+		while (lst[y][x])
 		{
 			if (lst[y][x] == '0')
 				mlx_put_image_to_window((*map)->mlx, (*map)->win,
@@ -46,7 +46,9 @@ void	put_and_load_map(char **lst, t_map **map)
 			else if (lst[y][x] == 'P')
 				mlx_put_image_to_window((*map)->mlx, (*map)->win,
 						(*map)->player_img, x * 32, y * 32);
+			x++;
 		}
+		y++;
 	}
 }
 
@@ -58,10 +60,11 @@ void	 minilibx(t_node **list, t_map **map, int fd)
 	(*map)->mlx = mlx_init();
 	if (!(*map)->mlx)
 		printf("mlx failed\n");
-	(*map)->win = mlx_new_window((*map)->mlx, (*map)->x_pixel, (*map)->y_pixel, "SO_LONG");
+	(*map)->win = mlx_new_window((*map)->mlx, 500, 200, "SO_LONG");
 	if (!(*map)->win)
 		printf("mlx window failed\n");
 	put_and_load_map(lst, map);
 	//printf("%s\n", (*list)->content);
 	close(fd);
+	mlx_loop((*map)->mlx);
 }
