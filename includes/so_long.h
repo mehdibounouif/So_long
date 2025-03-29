@@ -38,9 +38,9 @@ typedef struct s_map
 	void	*exit_img;
 	void	*player_img;
 	void	*collectible_img;
-	int	img_width;
-	int	img_height;
-        int     y;
+	int		img_width;
+	int		img_height;
+	int		y;
         size_t  x;
 	int	player_x;
 	int	x_pixel;
