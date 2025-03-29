@@ -23,6 +23,21 @@
 # define INVALID_MAP_ERROR "Invalid map!\n"
 # define IMAGE_ERROR "Image not found!\n"
 
+
+# define ESC 65307
+
+# define UP 65362
+# define UP_W 119
+
+# define DOWN 65364
+# define DOWN_S 115
+
+# define LEFT 65361
+# define LEFT_A 97
+
+# define RIGHT 65363
+# define RIGHT_D 100
+
 typedef struct s_node
 {
         char    *content;

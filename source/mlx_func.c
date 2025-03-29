@@ -108,6 +108,6 @@ void	 minilibx(t_node **list, t_map **map, int fd)
 		printf("mlx window failed\n");
 	put_and_load_map(lst, map, fd);
 	(*map)->map = lst;
-	mlx_hook((*map)->mlx, 17, 0, clean_exit, map);
+//	mlx_hook((*map)->mlx, 2, 1L << 0, clean_exit, map);
 	mlx_loop((*map)->mlx);
 }
