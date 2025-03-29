@@ -24,7 +24,7 @@ void	check_walls(t_node **list, t_map **map, int fd)
 			}
 			j++;
 		}
-		printf("%s\n", tmp);
+//		printf("%s\n", tmp);
 		i++;
 		tmp_list = tmp_list->next;
 	}

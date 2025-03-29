@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
 	t_list	*temp;
 
@@ -23,9 +23,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 			temp = *lst;
 			while (temp->next != NULL)
 				temp = temp->next;
-			temp->next = new;
+			temp->next = new_node;
 		}
 		else
-			*lst = new;
+			*lst = new_node;
 	}
 }

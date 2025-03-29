@@ -21,7 +21,7 @@
 # define INVALID_CHAR_ERROR "Invalid character in map!\n"
 # define NO_COLLECTIBLE_ERROR "There's no collectibles!\n"
 # define INVALID_MAP_ERROR "Invalid map!\n"
-
+# define IMAGE_ERROR "Image not found!\n"
 
 typedef struct s_node
 {
@@ -38,9 +38,10 @@ typedef struct s_map
 	void	*exit_img;
 	void	*player_img;
 	void	*collectible_img;
-	int		img_width;
-	int		img_height;
-	int		y;
+	char	**map;
+	int	img_width;
+	int	img_height;
+        int     y;
         size_t  x;
 	int	player_x;
 	int	x_pixel;
@@ -50,11 +51,11 @@ typedef struct s_map
 	int	exit_y;
         int     collectible;
         int	access_exit;
-        bool    is_correct;
+	t_node	*list;
 }	t_map;
 
 t_node  *ft_new_node(char *content);
-void    add_back(t_node **list, t_node *new);
+void    add_back(t_node **list, t_node *new_node);
 void    ft_free_list(t_node **list);
 void    free_and_close(t_node **list, t_map **map, int fd, char *msg);
 void	check_rectangule(t_node **list, t_map **map, int fd);

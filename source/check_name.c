@@ -13,10 +13,12 @@ void     check_name(char *name)
         if (!ft_strcmp(tmp[i], "ber"))
         {
                 ft_free_str(tmp);
-		free(tmp);
                 return ;
         }
-        ft_free_str(tmp);
-	write(2, "Error\nInvalid file name!\n", 25);
-	exit(1);
+		else
+		{
+			ft_free_str(tmp);
+			write(2, "error\ninvalid file name!\n", 25);
+			exit(1);
+		}
 }

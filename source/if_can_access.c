@@ -22,24 +22,16 @@ void	if_can_access(t_node **list, t_map **map, int fd)
 	char	**lst;	
 	int	c;
 	
-
 	lst = map_copy(list, map);
 	c = (*map)->collectible;
 	flood_fill(lst, *map, (*map)->player_x-1, (*map)->player_y-1, &c);
-	/*
-	printf("\n=================\n"):
-	while (lst[i])
-	{
-		printf ("%s\n", lst[i]);
-		i++;
-	{
-	printf("\n=================\n"):
-	*/
 	if (c == 0 && (*map)->access_exit == 1)
-		free(lst);
+	{
+		ft_free_str(lst);
+	}
 	else
 	{
-		free(lst);
+		ft_free_str(lst);
 		free_and_close(list, map, fd, INVALID_MAP_ERROR);
 	}
 }

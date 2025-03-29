@@ -27,5 +27,6 @@ void    check_rectangule(t_node **list, t_map **map, int fd)
                 (*map)->y++;
         }
         (*map)->x = first_line - 1;
+		(*map)->list = *list;
 }
 
